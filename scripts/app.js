@@ -25,7 +25,7 @@ Shelter.requestShelterList = function(location, callback) {
 }
 
 Shelter.requestShelterList('98026', function(data) {
-  console.log(data);
+  console.log(data.petfinder.shelters.shelter);
 });
 
 var breedView = {};
