@@ -2,11 +2,22 @@
 <html lang="en">
   <head>
     <title>Catpanion Litterbox - toy with the APIs!</title>
+    <script id="breed-template" type="text/x-handlebars-template">
+      <li>{{breedname}}</li>
+    </script>
   </head>
   <body>
     <main>
+      <section>
+        <ul id="breeds">
+        </ul>
+      </section>
     </main>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="vendor/scripts/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="vendor/scripts/handlebars-v4.0.5.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="vendor/scripts/gmaps.js"></script>
     <script type="text/javascript" src="scripts/pfToken.js"></script>
     <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/gm2.js"></script>
   </body>
