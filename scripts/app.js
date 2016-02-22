@@ -10,11 +10,13 @@ function Breed(opts) {
 
 function Shelter(opts) {
   Object.keys(opts).forEach(function(ele, index, keys) {
-    this[ele] = opts[ele];
+    this[ele] = opts[ele].$t;
   }, this);
 }
 
 Shelter.all = [];
+
+shelterView = {};
 
 Shelter.requestShelterList = function(location, callback) {
   var petFinderApi = 'http://api.petfinder.com/shelter.find?format=json&key='
@@ -25,13 +27,33 @@ Shelter.requestShelterList = function(location, callback) {
 }
 
 Shelter.requestShelterList('98026', function(data) {
-  console.log(data.petfinder.shelters.shelter);
+  var shelterList = data.petfinder.shelters.shelter;
+  Shelter.loadAll(shelterList);
 });
+
+Shelter.loadAll = function(list) {
+  Shelter.all = list.map(function(ele) {
+    console.log(ele);
+    console.log(ele.$t);
+    return new Shelter(ele);
+  })
+}
+
+shelterView.index = function() {
+  Shelter.all.forEach(function(shelter) {
+    $('#shelters').append(renderShelter(shelter));
+  });
+}
 
 var breedView = {};
 
-var render = function(breed) {
+var renderBreed = function(breed) {
   return $('<li>').text(breed);
+}
+
+var renderShelter = function(shelter) {
+  var template = Handlebars.compile($('#shelter-template').text());
+  return template(shelter);
 }
 
 Breed.all = [];
@@ -58,8 +80,8 @@ Breed.requestBreeds(function(data){
 breedView.index = function(breedArray) {
   Breed.all.forEach(function(breed) {
     console.log(breed);
-    console.log(render(breed));
-    $('#breeds').append(render(breed));
+    console.log(renderBreed(breed));
+    $('#breeds').append(renderBreed(breed));
   });
 }
 
