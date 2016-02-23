@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Catpanion Litterbox - toy with the APIs!</title>
+    <script id="breed-template" type="text/x-handlebars-template">
+      <li>{{breedname}}</li>
+    </script>
+    <script id="shelter-template" type="text/x-handlebars-template">
+      <article>
+      <p>Name: {{name}}</p>
+      <p>Address:</p>
+      <p>{{address1}}</p>
+      <p>{{address2}}</p>
+      <p>{{city}}, {{state}} {{zip}}</p>
+      <p>Phone: {{phone}}</p>
+      <p>Latitude: {{latitude}}</p>
+      <p>Longitude: {{longitude}}</p>
+    </article>
+    </script>
+  </head>
+  <body>
+    <main>
+      <section>
+        <ul id="breeds">
+        </ul>
+      </section>
+      <section id="shelters">
+      </section>
+    </main>
+    <script type="text/javascript" src="vendor/scripts/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="vendor/scripts/handlebars-v4.0.5.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="vendor/scripts/gmaps.js"></script>
+    <script type="text/javascript" src="scripts/pfToken.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/breed.js"></script>
+    <script type="text/javascript" src="scripts/breedView.js"></script>
+    <script type="text/javascript" src="scripts/shelter.js"></script>
+    <script type="text/javascript" src="scripts/shelterView.js"></script>
+    <script type="text/javascript" src="scripts/shelterByBreed.js"></script>
+  </body>
